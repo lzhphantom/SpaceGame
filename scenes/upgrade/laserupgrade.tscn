@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://lnsnr73c1pr7"]
+
+[ext_resource type="Texture2D" uid="uid://b7mku4ch5gmeb" path="res://assets/PNG/Power-ups/powerupBlue.png" id="1_eo3vs"]
+[ext_resource type="Script" path="res://scripts/upgrade/laserupgrade.gd" id="1_whydt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ki2sp"]
+size = Vector2(33, 34)
+
+[node name="laserupgrade" type="Area2D"]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_whydt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_eo3vs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_ki2sp")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

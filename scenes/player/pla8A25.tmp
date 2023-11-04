@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvbn3rcl3t7nj"]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_0wb8q"]
+[ext_resource type="PackedScene" uid="uid://dqj1sk734rdqt" path="res://scenes/laser/laser.tscn" id="2_4uukq"]
+[ext_resource type="Texture2D" uid="uid://3p2gkwku7ler" path="res://assets/PNG/playerShip1_blue.png" id="2_ji0ch"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3apgq"]
+radius = 49.2544
+
+[node name="Player" type="Area2D" groups=["player"]]
+position = Vector2(287, 892)
+script = ExtResource("1_0wb8q")
+laser_tscn = ExtResource("2_4uukq")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_ji0ch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+scale = Vector2(0.7, 0.7)
+shape = SubResource("CircleShape2D_3apgq")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

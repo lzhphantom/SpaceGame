@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cv4abwsjql6rl"]
+
+[ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_jg4qh"]
+[ext_resource type="PackedScene" uid="uid://lnsnr73c1pr7" path="res://scenes/upgrade/laserupgrade.tscn" id="2_bj2kt"]
+[ext_resource type="Texture2D" uid="uid://b1doxbiansc1p" path="res://assets/PNG/Enemies/enemyBlack1.png" id="2_ehx2h"]
+[ext_resource type="PackedScene" uid="uid://dts6fgeet0j6o" path="res://scenes/laser/laser_enemy.tscn" id="3_cbr5k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3apgq"]
+radius = 44.898
+
+[node name="Enemy" type="Area2D" groups=["enemy"]]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_jg4qh")
+reward = ExtResource("2_bj2kt")
+laser_tscn = ExtResource("3_cbr5k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_ehx2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.42857, -2.85714)
+scale = Vector2(0.7, 0.7)
+shape = SubResource("CircleShape2D_3apgq")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="LaserTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
