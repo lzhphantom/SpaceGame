@@ -72,6 +72,7 @@ func get_reward():
 
 
 func auto_attack():
+	$fireAudio.play()
 	var collision_shape = $CollisionShape2D
 	var shape = collision_shape.shape
 	var self_x = shape.radius

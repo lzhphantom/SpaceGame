@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cv4abwsjql6rl"]
+[gd_scene load_steps=7 format=3 uid="uid://cv4abwsjql6rl"]
 
 [ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_jg4qh"]
 [ext_resource type="PackedScene" uid="uid://lnsnr73c1pr7" path="res://scenes/upgrade/laserupgrade.tscn" id="2_bj2kt"]
 [ext_resource type="Texture2D" uid="uid://b1doxbiansc1p" path="res://assets/PNG/Enemies/enemyBlack1.png" id="2_ehx2h"]
 [ext_resource type="PackedScene" uid="uid://dts6fgeet0j6o" path="res://scenes/laser/laser_enemy.tscn" id="3_cbr5k"]
+[ext_resource type="AudioStream" uid="uid://cys01s4ph4ph7" path="res://assets/Bonus/sfx_laser2.ogg" id="5_fafuk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3apgq"]
 radius = 44.898
@@ -26,5 +27,8 @@ shape = SubResource("CircleShape2D_3apgq")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="LaserTimer" type="Timer" parent="."]
+
+[node name="fireAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_fafuk")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

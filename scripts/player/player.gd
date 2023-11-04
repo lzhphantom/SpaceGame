@@ -27,6 +27,7 @@ func _process(_delta):
 	
 	var laser
 	if Input.is_action_just_pressed("fire"):
+		$fireAudio.play()
 		if LaserObjectPool.check_laser_pool():
 			laser = LaserObjectPool.reborn_laser()
 		else:
@@ -55,6 +56,7 @@ func _on_area_entered(other_area):
 func game_over():
 	self.queue_free()
 	GameState.is_game_over = true
+	$loseAudio.play()
 
 func fire_upgrade():
 	LaserObjectPool.upgrade_laser()

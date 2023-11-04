@@ -1,22 +1,27 @@
-[gd_scene load_steps=11 format=3 uid="uid://c867trfaps5a3"]
+[gd_scene load_steps=13 format=3 uid="uid://c867trfaps5a3"]
 
 [ext_resource type="Texture2D" uid="uid://bspr3s4ox22yf" path="res://back.png" id="1_4llj3"]
 [ext_resource type="Script" path="res://scripts/sched/EnemySpawner.gd" id="2_27knw"]
 [ext_resource type="PackedScene" uid="uid://dvbn3rcl3t7nj" path="res://scenes/player/player.tscn" id="3_m16il"]
 [ext_resource type="Script" path="res://scripts/label/ScoreLabel.gd" id="4_fmpr8"]
+[ext_resource type="FontFile" uid="uid://cdmwvpa7iudnr" path="res://assets/Bonus/kenvector_future_thin.ttf" id="5_k3s3b"]
 [ext_resource type="Script" path="res://scripts/label/EnemyCountLabel.gd" id="5_lru1k"]
 [ext_resource type="Script" path="res://scripts/label/GameOverLabel.gd" id="6_1h0fk"]
 [ext_resource type="PackedScene" uid="uid://cv4abwsjql6rl" path="res://scenes/enemy/enemy.tscn" id="7_buxr8"]
+[ext_resource type="FontFile" uid="uid://bxpv8jibumea0" path="res://assets/Bonus/kenvector_future.ttf" id="8_47uyh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gfx3b"]
+font = ExtResource("5_k3s3b")
 font_size = 24
 font_color = Color(0.169981, 0.811434, 0.301142, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ba0kk"]
+font = ExtResource("5_k3s3b")
 font_size = 24
 font_color = Color(1, 0.23931, 0.333109, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jfm3i"]
+font = ExtResource("8_47uyh")
 font_size = 52
 
 [node name="main" type="Node2D"]
@@ -49,10 +54,10 @@ script = ExtResource("4_fmpr8")
 metadata/_edit_lock_ = true
 
 [node name="EnemyCountLabel" type="Label" parent="."]
-offset_left = 448.0
-offset_top = 9.0
-offset_right = 550.0
-offset_bottom = 46.0
+offset_left = 406.0
+offset_top = 10.0
+offset_right = 540.0
+offset_bottom = 47.0
 text = "Enemy:0
 "
 label_settings = SubResource("LabelSettings_ba0kk")
