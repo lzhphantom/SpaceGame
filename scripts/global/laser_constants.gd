@@ -20,7 +20,7 @@ const LASER_DICT_BLUE = {
 	"blue14": {"path": "res://assets/PNG/Lasers/laserBlue14.png","speed":200.0, "attack":18, "clear_after_deaded":2.0, "next_level":"blue15"},
 	"blue15": {"path": "res://assets/PNG/Lasers/laserBlue15.png","speed":200.0, "attack":20, "clear_after_deaded":2.0, "next_level":"blue16"},
 	"blue16": {"path": "res://assets/PNG/Lasers/laserBlue16.png","speed":200.0, "attack":50, "clear_after_deaded":2.0, "next_level":"blue16"},
-} 
+}
 
 var random_generator = RandomNumberGenerator.new()
 enum Item { Up, No, down }

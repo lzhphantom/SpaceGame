@@ -69,6 +69,9 @@ func get_reward():
 			call_deferred("add_sibling",r)
 			LaserUpgradeObjectPool.add_laser_upgrade_pool(r)
 		r.position = self.position
+#		var item = load("res://scenes/upgrade/attack_interval_upgrade.tscn").instantiate()
+#		add_sibling(item)
+#		item.position = self.position
 
 
 func auto_attack():

@@ -29,6 +29,7 @@ stream = ExtResource("4_r5fvx")
 [node name="loseAudio" type="AudioStreamPlayer2D" parent="."]
 
 [node name="AttackInterval" type="Timer" parent="."]
+autostart = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="AttackInterval" to="." method="attack"]

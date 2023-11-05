@@ -70,6 +70,4 @@ func fire_upgrade():
 	
 func add_attack_interval(val: float) -> void:
 	self.attack_interval += val
-	$AttackInterval.stop()
 	$AttackInterval.wait_time = 1.0/self.attack_interval
-	$AttackInterval.start()
