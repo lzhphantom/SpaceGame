@@ -4,9 +4,9 @@ extends Node2D
 @export var enemy_tscn: PackedScene
 
 # every 1 sec -> spawn new enemy
-func spawn_enemy_ship():
+func spawn_enemy_ship() -> void:
 	var dict = EnemyConstants.get_enemy_level()
-	print_debug(dict)
+#	print_debug(dict)
 	var new_enemy: Enemy
 	if EnemyObjectPool.check_enemy_pool():
 		new_enemy = EnemyObjectPool.reborn_enemy()

@@ -42,9 +42,8 @@ const ENEMY_LEVEL_5 = {
 const ENEMY_LEVEL_GROUP:Array = [ENEMY_LEVEL_1,ENEMY_LEVEL_2,ENEMY_LEVEL_3,ENEMY_LEVEL_4,ENEMY_LEVEL_5]
 var random_generator = RandomNumberGenerator.new()
 func _ready():
-	pass
+	random_generator.randomize()
 func get_enemy_level() -> Dictionary:
-	random_generator.set_seed(Time.get_unix_time_from_system())
 	var index = random_generator.randi_range(0,ENEMY_LEVEL_GROUP.size()-1)
 	var index2 = random_generator.randi_range(0,ENEMY_LEVEL_GROUP[index].size()-1)
 	return ENEMY_LEVEL_GROUP[index][index2]

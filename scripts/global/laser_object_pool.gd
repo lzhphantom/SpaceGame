@@ -3,7 +3,7 @@ extends Node
 var laser_pool = []
 var can_alive_laser = -1
 
-func add_laser_pool(laser:Laser):
+func add_laser_pool(laser:Laser) -> void:
 	laser_pool.append(laser)
 
 func check_laser_pool() -> bool:
