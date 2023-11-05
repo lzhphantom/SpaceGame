@@ -112,3 +112,6 @@ func remove_all_lasers():
 	for item in laser_pool:
 		if item != null:
 			item.queue_free()
+
+func set_shape(path: String) -> void:
+	$Sprite2D.set_texture(load(path))

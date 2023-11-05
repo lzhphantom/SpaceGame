@@ -23,6 +23,7 @@ LaserConstants="*res://scripts/global/laser_constants.gd"
 DamageInterface="*res://scripts/global/damage_interface.gd"
 LaserObjectPool="*res://scripts/global/laser_object_pool.gd"
 LaserUpgradeObjectPool="*res://scripts/global/laser_upgrade_object_pool.gd"
+EnemyConstants="*res://scripts/global/enemy_constants.gd"
 
 [display]
 

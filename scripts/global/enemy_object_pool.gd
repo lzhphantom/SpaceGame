@@ -7,10 +7,10 @@ var can_alive_enemy = -1
 func _ready():
 	pass
 
-func add_enemy(enemy_instantiate):
+func add_enemy(enemy_instantiate: Enemy):
 	enemy_pool.append(enemy_instantiate)
 
-func check_enemy_pool():
+func check_enemy_pool() -> bool:
 	if can_alive_enemy != -1:
 		return true
 	for i in range(enemy_pool.size()):
@@ -19,12 +19,12 @@ func check_enemy_pool():
 			return true
 	return false
 
-func reborn_enemy():
+func reborn_enemy() -> Enemy:
 	var result = enemy_pool[can_alive_enemy]
 	can_alive_enemy = -1
 	return result
 
-func remove_enemy(enemy):
+func remove_enemy(enemy) -> void:
 	var enemy_index = enemy_pool.find(enemy)
 	if enemy_index !=-1:
 		enemy_pool.remove_at(enemy_index)
