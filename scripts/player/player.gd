@@ -3,11 +3,13 @@ class_name Player
 
 @export var laser_tscn: PackedScene
 @export var max_health: float = 10.0
+@export var attack_interval: float = 1.0
 var health_component: HealthComponent
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health_component = HealthComponent.new(max_health)
 	self.add_child(health_component)
+	self.add_attack_interval(0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,19 +27,24 @@ func _process(_delta):
 	elif moust_position.x>viewport_width - self_x:
 		self.position.x = viewport_width - self_x
 	
-	var laser
 	if Input.is_action_just_pressed("fire"):
-		$fireAudio.play()
-		if LaserObjectPool.check_laser_pool():
-			laser = LaserObjectPool.reborn_laser()
-		else:
-			laser = laser_tscn.instantiate()
-			add_sibling(laser)
-			LaserObjectPool.add_laser_pool(laser)
-		laser.position.x = self.position.x
-		laser.position.y = self.position.y - self_x
-		laser.reset()
+		attack()
 
+func attack() -> void:
+	var collision_shape = $CollisionShape2D
+	var shape = collision_shape.shape
+	var self_x = shape.radius
+	var laser: Laser
+	$fireAudio.play()
+	if LaserObjectPool.check_laser_pool():
+		laser = LaserObjectPool.reborn_laser()
+	else:
+		laser = laser_tscn.instantiate()
+		add_sibling(laser)
+		LaserObjectPool.add_laser_pool(laser)
+	laser.position.x = self.position.x
+	laser.position.y = self.position.y - self_x
+	laser.reset()
 
 func _on_area_entered(other_area):
 	if other_area is Enemy:
@@ -51,7 +58,6 @@ func _on_area_entered(other_area):
 		var laser_enemy = other_area as LaserEnemy
 		health_component.get_damage(laser_enemy.attack,Callable(self,"game_over"))
 		laser_enemy.disable()
-	print_debug(health_component.health)
 
 func game_over():
 	self.queue_free()
@@ -62,3 +68,8 @@ func fire_upgrade():
 	LaserObjectPool.upgrade_laser()
 	LaserConstants.play1_current_laser_level = LaserConstants.LASER_DICT_BLUE[LaserConstants.play1_current_laser_level]["next_level"]
 	
+func add_attack_interval(val: float) -> void:
+	self.attack_interval += val
+	$AttackInterval.stop()
+	$AttackInterval.wait_time = 1.0/self.attack_interval
+	$AttackInterval.start()

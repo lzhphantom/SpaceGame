@@ -59,7 +59,7 @@ func free_self_and_pool():
 func get_reward():
 	var result = LaserConstants.random_get_upgrade()
 	if result == LaserConstants.Item.Up:
-		print_debug("获得奖励")
+#		print_debug("获得奖励")
 		var r
 		if LaserUpgradeObjectPool.check_laser_upgrade_pool():
 			r = LaserUpgradeObjectPool.reborn_laser_upgrade()
