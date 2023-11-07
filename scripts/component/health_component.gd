@@ -23,3 +23,8 @@ func is_alive() -> bool:
 func reset():
 	health = MAX_HEALTH
 	deaded = false
+
+func heal_self(heal_pill: PillHeal):
+	self.health += heal_pill.heal
+	if self.health > self.MAX_HEALTH:
+		self.health = self.MAX_HEALTH

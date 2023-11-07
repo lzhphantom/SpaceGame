@@ -60,14 +60,8 @@ func get_reward():
 	var result = LaserConstants.random_get_upgrade()
 	if result == LaserConstants.Item.Up:
 #		print_debug("获得奖励")
-		var r
-		if LaserUpgradeObjectPool.check_laser_upgrade_pool():
-			r = LaserUpgradeObjectPool.reborn_laser_upgrade()
-			r.reset()
-		else:
-			r = reward.instantiate()
-			call_deferred("add_sibling",r)
-			LaserUpgradeObjectPool.add_laser_upgrade_pool(r)
+		var r = reward.instantiate()
+		call_deferred("add_sibling",r)
 		r.position = self.position
 #		var item = load("res://scenes/upgrade/attack_interval_upgrade.tscn").instantiate()
 #		add_sibling(item)
