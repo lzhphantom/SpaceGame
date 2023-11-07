@@ -5,7 +5,6 @@ class_name Enemy
 @export var score = 10
 @export var max_health: float = 1
 @export var clear_after_deaded: float = 2.0
-@export var reward: PackedScene
 @export var laser_tscn: PackedScene
 var health_component: HealthComponent
 # Called when the node enters the scene tree for the first time.
@@ -59,13 +58,10 @@ func free_self_and_pool():
 func get_reward():
 	var result = LaserConstants.random_get_upgrade()
 	if result == LaserConstants.Item.Up:
-#		print_debug("获得奖励")
-		var r = reward.instantiate()
+		print_debug("获得奖励")
+		var r = RewardConstants.random_reward_player()
 		call_deferred("add_sibling",r)
 		r.position = self.position
-#		var item = load("res://scenes/upgrade/attack_interval_upgrade.tscn").instantiate()
-#		add_sibling(item)
-#		item.position = self.position
 
 
 func auto_attack():

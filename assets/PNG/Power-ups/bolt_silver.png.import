@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cugnweq6en584"
-path="res://.godot/imported/bold_silver.png-1d43b91fbf5404611cf563f4b46845cf.ctex"
+path="res://.godot/imported/bolt_silver.png-2e7469348e8cec0fbe0a91e4b23fcda0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/PNG/Power-ups/bold_silver.png"
-dest_files=["res://.godot/imported/bold_silver.png-1d43b91fbf5404611cf563f4b46845cf.ctex"]
+source_file="res://assets/PNG/Power-ups/bolt_silver.png"
+dest_files=["res://.godot/imported/bolt_silver.png-2e7469348e8cec0fbe0a91e4b23fcda0.ctex"]
 
 [params]
 

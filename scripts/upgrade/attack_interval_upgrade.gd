@@ -1,39 +1,24 @@
 extends Area2D
 class_name AttackIntervalUpgrade
 
-@export var clear_after_deaded: float = 2.0
 @export var reward_attack_interval: float = 0.1
-var deaded = false
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	$Timer.wait_time = clear_after_deaded
-	$Timer.connect("timeout",Callable(self,"free_self_and_pool"))
+@export var speed: float = 120
+@export var direction: FlyDirectionComponent.FlightDirection
+var fly_direction: FlyDirectionComponent
 
+func _ready():
+	self.fly_direction = FlyDirectionComponent.new(speed,direction)
+	self.add_child(self.fly_direction)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if not self.deaded:
-		self.position.y += 100*delta
-
-
-func disable():
-	self.deaded = true
-	self.set_visible(false)
-	$Timer.start()
-
-func reset():
-	self.deaded = false
-	self.set_visible(true)
-	$Timer.stop()
-
-func free_self_and_pool():
-#	LaserUpgradeObjectPool.remove_laser_upgrade(self)
-	self.queue_free()
-
+	self.fly_direction.move(delta)
 
 func _on_area_entered(other_area):
 	if other_area is Player:
 		var player = other_area as Player
-		if not self.deaded:
-			self.disable()
-			player.add_attack_interval(reward_attack_interval)
+		self.queue_free()
+		player.add_attack_interval(reward_attack_interval)
+
+func set_shape(resource: Resource) -> void:
+	$Sprite2D.set_texture(resource)

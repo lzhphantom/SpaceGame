@@ -9,6 +9,7 @@ size = Vector2(33, 34)
 [node name="laserupgrade" type="Area2D"]
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_whydt")
+direction = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_eo3vs")

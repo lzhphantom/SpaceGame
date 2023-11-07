@@ -9,6 +9,7 @@ var fly_direction: FlyDirectionComponent
 
 func _ready():
 	self.fly_direction = FlyDirectionComponent.new(speed,direction)
+	self.add_child(self.fly_direction)
 
 
 func _process(delta):
@@ -19,3 +20,6 @@ func _on_area_entered(other_area):
 		var player = other_area as Player
 		self.queue_free()
 		player.fire_upgrade()
+
+func set_shape(resource: Resource) -> void:
+	$Sprite2D.set_texture(resource)

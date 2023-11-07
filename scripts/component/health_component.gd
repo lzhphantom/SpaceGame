@@ -28,3 +28,7 @@ func heal_self(heal_pill: PillHeal):
 	self.health += heal_pill.heal
 	if self.health > self.MAX_HEALTH:
 		self.health = self.MAX_HEALTH
+
+func add_max_health(hp: float):
+	self.MAX_HEALTH += hp
+	self.health +=hp
