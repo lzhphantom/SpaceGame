@@ -3,6 +3,7 @@ class_name LaserEnemy
 
 @export var speed:float =100.0
 @export var direction: FlyDirectionComponent.FlightDirection
+@export var angle:float = 0
 var fly_direction: FlyDirectionComponent
 var attack: AttackComponent
 @export var clear_after_deaded: float = 2.0
@@ -12,7 +13,8 @@ func _ready():
 	$Timer.wait_time = clear_after_deaded
 	$Timer.connect("timeout",Callable(self,"free_self_and_pool"))
 	
-	self.fly_direction = FlyDirectionComponent.new(speed,direction)
+	self.fly_direction = FlyDirectionComponent.new(speed,direction,180+angle)
+	self.set_rotation_degrees(180+angle)
 	self.add_child(self.fly_direction)
 	self.attack = AttackComponent.new(1.0)
 	self.add_child(self.attack)

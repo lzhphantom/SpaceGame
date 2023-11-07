@@ -1,4 +1,5 @@
 extends Area2D
+class_name StarScore
 
 @export var score:int = 50
 @export var speed: float = 120
@@ -6,7 +7,7 @@ extends Area2D
 var fly_direction: FlyDirectionComponent
 
 func _ready():
-	self.fly_direction = FlyDirectionComponent.new(speed,direction)
+	self.fly_direction = FlyDirectionComponent.new(speed,direction,0)
 	self.add_child(self.fly_direction)
 
 

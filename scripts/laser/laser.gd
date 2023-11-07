@@ -14,7 +14,7 @@ func _ready():
 	
 	var data = LaserConstants.LASER_DICT_BLUE[LaserConstants.play1_current_laser_level]
 	$LaserGrphic.set_texture(load(data["path"]))
-	self.fly_direction = FlyDirectionComponent.new(LaserConstants.play1_current_speed,direction)
+	self.fly_direction = FlyDirectionComponent.new(LaserConstants.play1_current_speed,direction,0)
 	self.add_child(self.fly_direction)
 	self.attack = AttackComponent.new(data["attack"])
 	self.add_child(self.attack)
@@ -42,3 +42,9 @@ func reset():
 func free_self_and_pool():
 	LaserObjectPool.remove_laser(self)
 	self.queue_free()
+
+func rotation_angle(angle: float):
+	self.fly_direction.radians = deg_to_rad(angle)
+	self.set_rotation_degrees(angle)
+	var radians = abs(cos(deg_to_rad(angle)))
+	self.set_scale(Vector2(radians,radians))

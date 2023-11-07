@@ -7,7 +7,7 @@ class_name AttackIntervalUpgrade
 var fly_direction: FlyDirectionComponent
 
 func _ready():
-	self.fly_direction = FlyDirectionComponent.new(speed,direction)
+	self.fly_direction = FlyDirectionComponent.new(speed,direction,0)
 	self.add_child(self.fly_direction)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

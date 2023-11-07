@@ -12,6 +12,7 @@ radius = 49.2544
 position = Vector2(287, 892)
 script = ExtResource("1_0wb8q")
 laser_tscn = ExtResource("2_4uukq")
+bullet_line = 5
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
