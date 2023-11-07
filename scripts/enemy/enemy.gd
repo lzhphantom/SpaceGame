@@ -57,7 +57,7 @@ func free_self_and_pool():
 
 func get_reward():
 	var result = LaserConstants.random_get_upgrade()
-	if result == LaserConstants.Item.Up:
+	if LaserConstants.Item.Up == LaserConstants.Item.Up:
 		print_debug("获得奖励")
 		var r = RewardConstants.random_reward_player()
 		call_deferred("add_sibling",r)

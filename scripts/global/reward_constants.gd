@@ -2,13 +2,15 @@ extends Node
 
 enum RewardPlayer{
 #	LASER_UPGRADE,
-	ATTACK_UPGRADE,HEAL
+	ATTACK_UPGRADE,POWER_SPEED_UP,
+	HEAL,
 }
 
 const  reward_group = {
 #	RewardPlayer.LASER_UPGRADE: {"tscn":preload("res://scenes/upgrade/laserupgrade.tscn"),"group":null},
 	RewardPlayer.ATTACK_UPGRADE:{"tscn":preload("res://scenes/upgrade/attack_interval_upgrade.tscn"),"group":attack_interval_group},
 	RewardPlayer.HEAL:{"tscn":preload("res://scenes/upgrade/pill_heal.tscn"), "group":pill_group},
+	RewardPlayer.POWER_SPEED_UP:{"tscn":preload("res://scenes/upgrade/laser_speed_up.tscn"), "group":power_up_speed_group},
 }
 
 enum RewardLevel{
@@ -28,11 +30,11 @@ const power_up_group = {
 	RewardLevel.RED:{"resource":preload("res://assets/PNG/Power-ups/powerupRed.png")},
 }
 
-const power_up_bolt_group = {
-	RewardLevel.BLUE:{"resource":preload("res://assets/PNG/Power-ups/powerupBlue_bolt.png")},
-	RewardLevel.GREEN:{"resource":preload("res://assets/PNG/Power-ups/powerupGreen_bolt.png")},
-	RewardLevel.YELLOW:{"resource":preload("res://assets/PNG/Power-ups/powerupYellow_bolt.png")},
-	RewardLevel.RED:{"resource":preload("res://assets/PNG/Power-ups/powerupRed_bolt.png")},
+const power_up_speed_group = {
+	RewardLevel.BLUE:{"resource":preload("res://assets/PNG/Power-ups/powerupBlue_bolt.png"),"speed_up":1.0},
+	RewardLevel.GREEN:{"resource":preload("res://assets/PNG/Power-ups/powerupGreen_bolt.png"),"speed_up":2.0},
+	RewardLevel.YELLOW:{"resource":preload("res://assets/PNG/Power-ups/powerupYellow_bolt.png"),"speed_up":5.0},
+	RewardLevel.RED:{"resource":preload("res://assets/PNG/Power-ups/powerupRed_bolt.png"),"speed_up":10.0},
 }
 
 const power_up_shield_group = {

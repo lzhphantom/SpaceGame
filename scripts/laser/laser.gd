@@ -1,7 +1,8 @@
 extends Area2D
 class_name Laser
 
-@export var fly_direction: FlyDirectionComponent
+@export var direction: FlyDirectionComponent.FlightDirection
+var fly_direction: FlyDirectionComponent
 var attack: AttackComponent
 @export var clear_after_deaded: float = 2.0
 var deaded = false
@@ -13,7 +14,7 @@ func _ready():
 	
 	var data = LaserConstants.LASER_DICT_BLUE[LaserConstants.play1_current_laser_level]
 	$LaserGrphic.set_texture(load(data["path"]))
-	self.fly_direction = FlyDirectionComponent.new(data["speed"],FlyDirectionComponent.FlightDirection.UP)
+	self.fly_direction = FlyDirectionComponent.new(LaserConstants.play1_current_speed,direction)
 	self.add_child(self.fly_direction)
 	self.attack = AttackComponent.new(data["attack"])
 	self.add_child(self.attack)
@@ -34,6 +35,7 @@ func disable():
 
 func reset():
 	self.deaded = false
+	self.fly_direction.speed = LaserConstants.play1_current_speed
 	self.set_visible(true)
 	$Timer.stop()
 

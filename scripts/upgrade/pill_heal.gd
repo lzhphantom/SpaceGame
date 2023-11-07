@@ -2,7 +2,7 @@ extends Area2D
 class_name PillHeal
 
 @export var heal:float = 1.0
-@export var speed: float = 150
+@export var speed: float = 120
 @export var direction: FlyDirectionComponent.FlightDirection
 var fly_direction: FlyDirectionComponent
 

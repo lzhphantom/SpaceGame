@@ -15,6 +15,8 @@ func move(delta):
 	if get_parent():
 		match direction:
 			FlightDirection.UP:
-				get_parent().position.y -= speed*delta
+				get_parent().position.y -= self.speed*delta
 			FlightDirection.DOWN:
-				get_parent().position.y += speed*delta
+				get_parent().position.y += self.speed*delta
+
+
