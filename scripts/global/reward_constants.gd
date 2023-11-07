@@ -18,6 +18,7 @@ const  reward_group = {
 enum RewardLevel{
 	BLUE,GREEN,YELLOW,RED
 }
+#回血药丸
 const pill_group = {
 	RewardLevel.BLUE:{"resource":preload("res://assets/PNG/Power-ups/pill_blue.png"), "heal": 1.0},
 	RewardLevel.GREEN:{"resource":preload("res://assets/PNG/Power-ups/pill_green.png"), "heal": 2.0},
@@ -25,6 +26,7 @@ const pill_group = {
 	RewardLevel.RED:{"resource":preload("res://assets/PNG/Power-ups/pill_red.png"), "heal": 10.0},
 }
 
+# 子弹升级
 const power_up_group = {
 	RewardLevel.BLUE:{"resource":preload("res://assets/PNG/Power-ups/powerupBlue.png")},
 	RewardLevel.GREEN:{"resource":preload("res://assets/PNG/Power-ups/powerupGreen.png")},
@@ -32,6 +34,7 @@ const power_up_group = {
 	RewardLevel.RED:{"resource":preload("res://assets/PNG/Power-ups/powerupRed.png")},
 }
 
+#子弹速度升级
 const power_up_speed_group = {
 	RewardLevel.BLUE:{"resource":preload("res://assets/PNG/Power-ups/powerupBlue_bolt.png"),"speed_up":1.0},
 	RewardLevel.GREEN:{"resource":preload("res://assets/PNG/Power-ups/powerupGreen_bolt.png"),"speed_up":2.0},
@@ -39,6 +42,7 @@ const power_up_speed_group = {
 	RewardLevel.RED:{"resource":preload("res://assets/PNG/Power-ups/powerupRed_bolt.png"),"speed_up":10.0},
 }
 
+# TODO:// 盾牌
 const power_up_shield_group = {
 	RewardLevel.BLUE:{"resource":preload("res://assets/PNG/Power-ups/powerupBlue_shield.png")},
 	RewardLevel.GREEN:{"resource":preload("res://assets/PNG/Power-ups/powerupGreen_shield.png")},
@@ -46,6 +50,7 @@ const power_up_shield_group = {
 	RewardLevel.RED:{"resource":preload("res://assets/PNG/Power-ups/powerupRed_shield.png")},
 }
 
+# 积分道具
 const power_up_star_group = {
 	RewardLevel.BLUE:{"resource":preload("res://assets/PNG/Power-ups/powerupBlue_star.png"),"score":50},
 	RewardLevel.GREEN:{"resource":preload("res://assets/PNG/Power-ups/powerupGreen_star.png"),"score":100},
@@ -57,6 +62,7 @@ enum RewardBracket{
 	BRONZE,GOLD,SILVER
 }
 
+# 攻击速度道具
 const attack_interval_group ={
 	RewardBracket.BRONZE:{"resource":preload("res://assets/PNG/Power-ups/bolt_bronze.png"),"reward_attack_interval":0.1},
 	RewardBracket.GOLD:{"resource":preload("res://assets/PNG/Power-ups/bolt_gold.png"),"reward_attack_interval":0.5},
