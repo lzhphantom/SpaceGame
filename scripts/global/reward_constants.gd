@@ -3,6 +3,7 @@ extends Node
 enum RewardPlayer{
 #	LASER_UPGRADE,
 	ATTACK_UPGRADE,POWER_SPEED_UP,
+	STAR_SCORE,
 	HEAL,
 }
 
@@ -11,6 +12,7 @@ const  reward_group = {
 	RewardPlayer.ATTACK_UPGRADE:{"tscn":preload("res://scenes/upgrade/attack_interval_upgrade.tscn"),"group":attack_interval_group},
 	RewardPlayer.HEAL:{"tscn":preload("res://scenes/upgrade/pill_heal.tscn"), "group":pill_group},
 	RewardPlayer.POWER_SPEED_UP:{"tscn":preload("res://scenes/upgrade/laser_speed_up.tscn"), "group":power_up_speed_group},
+	RewardPlayer.STAR_SCORE:{"tscn":preload("res://scenes/upgrade/star_score.tscn"), "group":power_up_star_group},
 }
 
 enum RewardLevel{
@@ -45,10 +47,10 @@ const power_up_shield_group = {
 }
 
 const power_up_star_group = {
-	RewardLevel.BLUE:{"resource":preload("res://assets/PNG/Power-ups/powerupBlue_star.png")},
-	RewardLevel.GREEN:{"resource":preload("res://assets/PNG/Power-ups/powerupGreen_star.png")},
-	RewardLevel.YELLOW:{"resource":preload("res://assets/PNG/Power-ups/powerupYellow_star.png")},
-	RewardLevel.RED:{"resource":preload("res://assets/PNG/Power-ups/powerupRed_star.png")},
+	RewardLevel.BLUE:{"resource":preload("res://assets/PNG/Power-ups/powerupBlue_star.png"),"score":50},
+	RewardLevel.GREEN:{"resource":preload("res://assets/PNG/Power-ups/powerupGreen_star.png"),"score":100},
+	RewardLevel.YELLOW:{"resource":preload("res://assets/PNG/Power-ups/powerupYellow_star.png"),"score":200},
+	RewardLevel.RED:{"resource":preload("res://assets/PNG/Power-ups/powerupRed_star.png"),"score":500},
 }
 
 enum RewardBracket{
@@ -77,8 +79,8 @@ func random_reward_player():
 		if key == "resource":
 			item.set_shape(params["resource"])
 		else:
-			print_debug("before set",item[key])
+#			print_debug("before set",item[key])
 			item[key] = params[key]
-			print_debug("after set",item[key])
+#			print_debug("after set",item[key])
 	return item
 	
