@@ -4,9 +4,10 @@ class_name Laser
 @export var direction: FlyDirectionComponent.FlightDirection
 var fly_direction: FlyDirectionComponent
 var attack: AttackComponent
-@export var clear_after_deaded: float = 2.0
+var clear_after_deaded: float = 2.0
 var deaded = false
 var can_reborn = true
+var action:String
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.wait_time = clear_after_deaded
@@ -18,7 +19,8 @@ func _ready():
 	self.add_child(self.fly_direction)
 	self.attack = AttackComponent.new(data["attack"])
 	self.add_child(self.attack)
-	self.clear_after_deaded = data["clear_after_deaded"]
+	self.action = data["action"]
+	$AnimatedSprite2D.play(data["action"])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,12 +34,14 @@ func disable():
 	self.deaded = true
 	self.set_visible(false)
 	$Timer.start()
+	$AnimatedSprite2D.stop()
 
 func reset():
 	self.deaded = false
 	self.fly_direction.speed = LaserConstants.play1_current_speed
 	self.set_visible(true)
 	$Timer.stop()
+	$AnimatedSprite2D.play(self.action)
 
 func free_self_and_pool():
 	LaserObjectPool.remove_laser(self)

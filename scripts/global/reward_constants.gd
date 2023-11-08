@@ -3,7 +3,7 @@ extends Node
 enum RewardPlayer{
 #	LASER_UPGRADE,
 	ATTACK_UPGRADE,POWER_SPEED_UP,
-	STAR_SCORE,
+	STAR_SCORE,BULLET_LINE_UP,
 	HEAL,
 }
 
@@ -13,12 +13,13 @@ const  reward_group = {
 	RewardPlayer.HEAL:{"tscn":preload("res://scenes/upgrade/pill_heal.tscn"), "group":pill_group},
 	RewardPlayer.POWER_SPEED_UP:{"tscn":preload("res://scenes/upgrade/laser_speed_up.tscn"), "group":power_up_speed_group},
 	RewardPlayer.STAR_SCORE:{"tscn":preload("res://scenes/upgrade/star_score.tscn"), "group":power_up_star_group},
+	RewardPlayer.BULLET_LINE_UP:{"tscn":preload("res://scenes/upgrade/bullet_increase.tscn"), "group":bullet_line_group},
 }
 
 enum RewardLevel{
 	BLUE,GREEN,YELLOW,RED
 }
-#回血药丸
+#回血药丸道具
 const pill_group = {
 	RewardLevel.BLUE:{"resource":preload("res://assets/PNG/Power-ups/pill_blue.png"), "heal": 1.0},
 	RewardLevel.GREEN:{"resource":preload("res://assets/PNG/Power-ups/pill_green.png"), "heal": 2.0},
@@ -26,7 +27,7 @@ const pill_group = {
 	RewardLevel.RED:{"resource":preload("res://assets/PNG/Power-ups/pill_red.png"), "heal": 10.0},
 }
 
-# 子弹升级
+# 子弹升级道具
 const power_up_group = {
 	RewardLevel.BLUE:{"resource":preload("res://assets/PNG/Power-ups/powerupBlue.png")},
 	RewardLevel.GREEN:{"resource":preload("res://assets/PNG/Power-ups/powerupGreen.png")},
@@ -34,7 +35,7 @@ const power_up_group = {
 	RewardLevel.RED:{"resource":preload("res://assets/PNG/Power-ups/powerupRed.png")},
 }
 
-#子弹速度升级
+#子弹速度升级道具
 const power_up_speed_group = {
 	RewardLevel.BLUE:{"resource":preload("res://assets/PNG/Power-ups/powerupBlue_bolt.png"),"speed_up":1.0},
 	RewardLevel.GREEN:{"resource":preload("res://assets/PNG/Power-ups/powerupGreen_bolt.png"),"speed_up":2.0},
@@ -67,6 +68,13 @@ const attack_interval_group ={
 	RewardBracket.BRONZE:{"resource":preload("res://assets/PNG/Power-ups/bolt_bronze.png"),"reward_attack_interval":0.1},
 	RewardBracket.GOLD:{"resource":preload("res://assets/PNG/Power-ups/bolt_gold.png"),"reward_attack_interval":0.5},
 	RewardBracket.SILVER:{"resource":preload("res://assets/PNG/Power-ups/bolt_silver.png"),"reward_attack_interval":1.0},
+}
+
+#子弹弹道道具
+const bullet_line_group = {
+	RewardBracket.BRONZE:{"resource":preload("res://assets/PNG/Power-ups/things_bronze.png"),"number":1},
+	RewardBracket.GOLD:{"resource":preload("res://assets/PNG/Power-ups/things_gold.png"),"number":2},
+	RewardBracket.SILVER:{"resource":preload("res://assets/PNG/Power-ups/things_silver.png"),"number":3},
 }
 
 var random_generator = RandomNumberGenerator.new()

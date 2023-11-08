@@ -1,20 +1,94 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqj1sk734rdqt"]
+[gd_scene load_steps=16 format=3 uid="uid://dqj1sk734rdqt"]
 
-[ext_resource type="Texture2D" uid="uid://krhvs2dcujdu" path="res://assets/PNG/Lasers/laserBlue01.png" id="1_7fmec"]
 [ext_resource type="Script" path="res://scripts/laser/laser.gd" id="1_pnh1g"]
+[ext_resource type="Texture2D" uid="uid://b7kl6pt7743eg" path="res://assets/PNG/Lasers/laserBlue1_1.png" id="2_ylkf5"]
+[ext_resource type="Texture2D" uid="uid://cnpjkqcxkalci" path="res://assets/PNG/Lasers/laserBlue1_2.png" id="3_05cfp"]
+[ext_resource type="Texture2D" uid="uid://clo4xnv6h86c2" path="res://assets/PNG/Lasers/laserBlue1_3.png" id="4_66csb"]
+[ext_resource type="Texture2D" uid="uid://dsfu3wtq8y1if" path="res://assets/PNG/Lasers/laserBlue2_1.png" id="5_5n27p"]
+[ext_resource type="Texture2D" uid="uid://cykji0qv71n1w" path="res://assets/PNG/Lasers/laserBlue2_2.png" id="6_jeyvi"]
+[ext_resource type="Texture2D" uid="uid://ba1a1xcq7aqm1" path="res://assets/PNG/Lasers/laserBlue2_3.png" id="7_mepiq"]
+[ext_resource type="Texture2D" uid="uid://b6vt0ob24gbfe" path="res://assets/PNG/Lasers/laserBlue3_1.png" id="8_8jy6w"]
+[ext_resource type="Texture2D" uid="uid://krhvs2dcujdu" path="res://assets/PNG/Lasers/laserBlue3_2.png" id="9_a0mix"]
+[ext_resource type="Texture2D" uid="uid://d0pq1nylote6a" path="res://assets/PNG/Lasers/laserBlue3_3.png" id="10_lja7t"]
+[ext_resource type="Texture2D" uid="uid://6x2u7s0qjiep" path="res://assets/PNG/Lasers/laserBlue4_1.png" id="11_osmpy"]
+[ext_resource type="Texture2D" uid="uid://v71hmxvrtws7" path="res://assets/PNG/Lasers/laserBlue4_2.png" id="12_psuly"]
+[ext_resource type="Texture2D" uid="uid://mplrbgc2uedb" path="res://assets/PNG/Lasers/laserBlue4_3.png" id="13_slmtx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xek4r"]
 size = Vector2(10, 54.1429)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kr7d3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ylkf5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_05cfp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_66csb")
+}],
+"loop": true,
+"name": &"fly1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_5n27p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jeyvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mepiq")
+}],
+"loop": true,
+"name": &"fly2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_8jy6w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_a0mix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lja7t")
+}],
+"loop": true,
+"name": &"fly3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_osmpy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_psuly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_slmtx")
+}],
+"loop": true,
+"name": &"fly4",
+"speed": 5.0
+}]
 
 [node name="Laser" type="Area2D" groups=["laser"]]
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_pnh1g")
 
 [node name="LaserGrphic" type="Sprite2D" parent="."]
-texture = ExtResource("1_7fmec")
+texture = ExtResource("2_ylkf5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.0714274)
 shape = SubResource("RectangleShape2D_xek4r")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kr7d3")
+animation = &"fly1"

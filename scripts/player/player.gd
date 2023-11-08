@@ -5,7 +5,7 @@ class_name Player
 @export var max_health: float = 10.0
 @export var attack_interval: float = 1.0
 var health_component: HealthComponent
-@export var bullet_line:int = 1
+var bullet_line:int = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health_component = HealthComponent.new(max_health)
@@ -96,3 +96,8 @@ func fire_upgrade():
 func add_attack_interval(val: float) -> void:
 	self.attack_interval += val
 	$AttackInterval.wait_time = 1.0/self.attack_interval
+
+func add_bullect_line(number:int):
+	self.bullet_line += number
+	if self.bullet_line >5:
+		self.bullet_line = 5
