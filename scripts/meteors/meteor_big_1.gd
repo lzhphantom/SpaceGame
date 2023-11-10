@@ -20,7 +20,7 @@ func _ready():
 func _process(delta):
 	if not self.deaded:
 		self.fly_direction.move(delta)
-	if self.position.y > get_viewport_rect().size.y:
+	if self.position.y - abs($CollisionPolygon2D.polygon[0].y) > get_viewport_rect().size.y:
 		self.disable()
 
 

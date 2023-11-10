@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bspr3s4ox22yf" path="res://back.png" id="1_4llj3"]
 [ext_resource type="Script" path="res://scripts/sched/EnemySpawner.gd" id="2_27knw"]
+[ext_resource type="Script" path="res://scripts/sched/MeteorsSpawner.gd" id="2_mhuov"]
 [ext_resource type="PackedScene" uid="uid://dvbn3rcl3t7nj" path="res://scenes/player/player.tscn" id="3_m16il"]
 [ext_resource type="Script" path="res://scripts/label/ScoreLabel.gd" id="4_fmpr8"]
 [ext_resource type="FontFile" uid="uid://cdmwvpa7iudnr" path="res://assets/Bonus/kenvector_future_thin.ttf" id="5_k3s3b"]
@@ -9,7 +10,6 @@
 [ext_resource type="Script" path="res://scripts/label/GameOverLabel.gd" id="6_1h0fk"]
 [ext_resource type="PackedScene" uid="uid://cv4abwsjql6rl" path="res://scenes/enemy/enemy.tscn" id="7_buxr8"]
 [ext_resource type="FontFile" uid="uid://bxpv8jibumea0" path="res://assets/Bonus/kenvector_future.ttf" id="8_47uyh"]
-[ext_resource type="PackedScene" uid="uid://dtrn0a3gcm1b2" path="res://scenes/meteors/meteor_big_1.tscn" id="10_cca1f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gfx3b"]
 font = ExtResource("5_k3s3b")
@@ -32,6 +32,12 @@ position = Vector2(280.5, 481.5)
 scale = Vector2(0.274902, 0.624349)
 texture = ExtResource("1_4llj3")
 metadata/_edit_lock_ = true
+
+[node name="MeteorsSpawner" type="Node2D" parent="."]
+script = ExtResource("2_mhuov")
+
+[node name="Timer" type="Timer" parent="MeteorsSpawner"]
+autostart = true
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("2_27knw")
@@ -78,7 +84,5 @@ vertical_alignment = 1
 script = ExtResource("6_1h0fk")
 metadata/_edit_lock_ = true
 
-[node name="MeteorBig1" parent="." instance=ExtResource("10_cca1f")]
-position = Vector2(246, 199)
-
+[connection signal="timeout" from="MeteorsSpawner/Timer" to="MeteorsSpawner" method="spawn_meteors"]
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="spawn_enemy_ship"]
