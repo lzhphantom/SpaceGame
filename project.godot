@@ -24,6 +24,7 @@ DamageInterface="*res://scripts/global/damage_interface.gd"
 LaserObjectPool="*res://scripts/global/laser_object_pool.gd"
 RewardConstants="*res://scripts/global/reward_constants.gd"
 EnemyConstants="*res://scripts/global/enemy_constants.gd"
+MeteorObjectPool="*res://scripts/global/meteor_object_pool.gd"
 
 [display]
 
