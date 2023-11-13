@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://c867trfaps5a3"]
 
 [ext_resource type="Texture2D" uid="uid://bspr3s4ox22yf" path="res://back.png" id="1_4llj3"]
+[ext_resource type="Script" path="res://main.gd" id="1_h4ws8"]
 [ext_resource type="Script" path="res://scripts/sched/EnemySpawner.gd" id="2_27knw"]
 [ext_resource type="Script" path="res://scripts/sched/MeteorsSpawner.gd" id="2_mhuov"]
-[ext_resource type="PackedScene" uid="uid://dvbn3rcl3t7nj" path="res://scenes/player/player.tscn" id="3_m16il"]
 [ext_resource type="Script" path="res://scripts/label/ScoreLabel.gd" id="4_fmpr8"]
 [ext_resource type="FontFile" uid="uid://cdmwvpa7iudnr" path="res://assets/Bonus/kenvector_future_thin.ttf" id="5_k3s3b"]
 [ext_resource type="Script" path="res://scripts/label/EnemyCountLabel.gd" id="5_lru1k"]
@@ -26,6 +26,7 @@ font = ExtResource("8_47uyh")
 font_size = 52
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_h4ws8")
 
 [node name="SpaceBackground" type="Sprite2D" parent="."]
 position = Vector2(280.5, 481.5)
@@ -37,16 +38,14 @@ metadata/_edit_lock_ = true
 script = ExtResource("2_mhuov")
 
 [node name="Timer" type="Timer" parent="MeteorsSpawner"]
-autostart = true
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("2_27knw")
 enemy_tscn = ExtResource("7_buxr8")
 
 [node name="Timer" type="Timer" parent="EnemySpawner"]
-autostart = true
 
-[node name="Player" parent="." instance=ExtResource("3_m16il")]
+[node name="Players" type="Node" parent="."]
 
 [node name="ScoreLabel" type="Label" parent="."]
 offset_left = 9.0
@@ -84,5 +83,27 @@ vertical_alignment = 1
 script = ExtResource("6_1h0fk")
 metadata/_edit_lock_ = true
 
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Create" type="Button" parent="UI"]
+offset_left = 237.0
+offset_top = 251.0
+offset_right = 309.0
+offset_bottom = 282.0
+text = "创建游戏"
+
+[node name="join" type="Button" parent="UI"]
+offset_left = 239.0
+offset_top = 310.0
+offset_right = 311.0
+offset_bottom = 341.0
+text = "加入游戏"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/player/player.tscn")
+spawn_path = NodePath("../Players")
+
 [connection signal="timeout" from="MeteorsSpawner/Timer" to="MeteorsSpawner" method="spawn_meteors"]
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="spawn_enemy_ship"]
+[connection signal="button_down" from="UI/Create" to="." method="_on_create_button_down"]
+[connection signal="button_down" from="UI/join" to="." method="_on_join_button_down"]

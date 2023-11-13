@@ -32,3 +32,4 @@ func spawn_enemy_ship() -> void:
 #	new_enemy.score = 20
 	new_enemy.reset()
 	GameState.increase_enemy(1)
+

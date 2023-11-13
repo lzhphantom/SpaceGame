@@ -8,13 +8,20 @@ var health_component: HealthComponent
 var bullet_line:int = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var random = RandomNumberGenerator.new()
+	random.randomize()
+	self.position = Vector2(50,random.randi_range(600,900))
 	health_component = HealthComponent.new(max_health)
 	self.add_child(health_component)
 	self.add_attack_interval(0)
 
+func _enter_tree():
+	set_multiplayer_authority(self.name.to_int())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if not is_multiplayer_authority():
+		return
 	var collision_shape = $CollisionShape2D
 	var shape = collision_shape.shape
 	var self_x = shape.radius

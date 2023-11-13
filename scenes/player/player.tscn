@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvbn3rcl3t7nj"]
+[gd_scene load_steps=7 format=3 uid="uid://dvbn3rcl3t7nj"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_0wb8q"]
 [ext_resource type="PackedScene" uid="uid://dqj1sk734rdqt" path="res://scenes/laser/laser.tscn" id="2_4uukq"]
@@ -7,6 +7,12 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3apgq"]
 radius = 49.2544
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_cadpl"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
 
 [node name="Player" type="Area2D" groups=["player"]]
 position = Vector2(287, 892)
@@ -30,6 +36,9 @@ stream = ExtResource("4_r5fvx")
 
 [node name="AttackInterval" type="Timer" parent="."]
 autostart = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_cadpl")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="AttackInterval" to="." method="attack"]
