@@ -37,7 +37,8 @@ func _process(_delta):
 	
 	if Input.is_action_just_pressed("fire"):
 		attack()
-
+		rpc("attack")
+@rpc("call_local","any_peer")
 func attack() -> void:
 	var collision_shape = $CollisionShape2D
 	var shape = collision_shape.shape

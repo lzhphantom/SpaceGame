@@ -103,6 +103,10 @@ text = "加入游戏"
 _spawnable_scenes = PackedStringArray("res://scenes/player/player.tscn")
 spawn_path = NodePath("../Players")
 
+[node name="MultiplayerSpawner2" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/enemy/enemy.tscn")
+spawn_path = NodePath("../EnemySpawner")
+
 [connection signal="timeout" from="MeteorsSpawner/Timer" to="MeteorsSpawner" method="spawn_meteors"]
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="spawn_enemy_ship"]
 [connection signal="button_down" from="UI/Create" to="." method="_on_create_button_down"]

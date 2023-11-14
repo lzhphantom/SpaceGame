@@ -13,7 +13,7 @@ func spawn_enemy_ship() -> void:
 		new_enemy.reset()
 	else:
 		new_enemy = enemy_tscn.instantiate()
-		self.add_child(new_enemy)
+		self.add_child(new_enemy,true)
 		EnemyObjectPool.add_enemy(new_enemy)
 	
 	new_enemy.speed = dict["speed"]
