@@ -12,6 +12,7 @@ func _ready():
 	random.randomize()
 	self.position = Vector2(50,random.randi_range(600,900))
 	health_component = HealthComponent.new(max_health)
+	health_component.callback = Callable(self,"game_over")
 	self.add_child(health_component)
 	self.add_attack_interval(0)
 
@@ -84,12 +85,12 @@ func _on_area_entered(other_area):
 		var enemy = other_area as Enemy
 		if not enemy.health_component.deaded:
 			var enemyImpact = AttackComponent.new(enemy.health_component.health)
-			health_component.get_damage(enemyImpact,Callable(self,"game_over"))
+			health_component.get_damage(enemyImpact)
 			enemy.disable()
 	
 	if other_area is LaserEnemy:
 		var laser_enemy = other_area as LaserEnemy
-		health_component.get_damage(laser_enemy.attack,Callable(self,"game_over"))
+		health_component.get_damage(laser_enemy.attack)
 		laser_enemy.disable()
 
 func game_over():

@@ -21,42 +21,42 @@ enum RewardLevel{
 }
 #回血药丸道具
 const pill_group = {
-	RewardLevel.BLUE:{"resource":preload("res://assets/PNG/Power-ups/pill_blue.png"), "heal": 1.0},
-	RewardLevel.GREEN:{"resource":preload("res://assets/PNG/Power-ups/pill_green.png"), "heal": 2.0},
-	RewardLevel.YELLOW:{"resource":preload("res://assets/PNG/Power-ups/pill_yellow.png"), "heal": 5.0},
-	RewardLevel.RED:{"resource":preload("res://assets/PNG/Power-ups/pill_red.png"), "heal": 10.0},
+	RewardLevel.BLUE:{"resource":"res://assets/PNG/Power-ups/pill_blue.png", "heal": 1.0},
+	RewardLevel.GREEN:{"resource":"res://assets/PNG/Power-ups/pill_green.png", "heal": 2.0},
+	RewardLevel.YELLOW:{"resource":"res://assets/PNG/Power-ups/pill_yellow.png", "heal": 5.0},
+	RewardLevel.RED:{"resource":"res://assets/PNG/Power-ups/pill_red.png", "heal": 10.0},
 }
 
 # 子弹升级道具
 const power_up_group = {
-	RewardLevel.BLUE:{"resource":preload("res://assets/PNG/Power-ups/powerupBlue.png")},
-	RewardLevel.GREEN:{"resource":preload("res://assets/PNG/Power-ups/powerupGreen.png")},
-	RewardLevel.YELLOW:{"resource":preload("res://assets/PNG/Power-ups/powerupYellow.png")},
-	RewardLevel.RED:{"resource":preload("res://assets/PNG/Power-ups/powerupRed.png")},
+	RewardLevel.BLUE:{"resource":"res://assets/PNG/Power-ups/powerupBlue.png"},
+	RewardLevel.GREEN:{"resource":"res://assets/PNG/Power-ups/powerupGreen.png"},
+	RewardLevel.YELLOW:{"resource":"res://assets/PNG/Power-ups/powerupYellow.png"},
+	RewardLevel.RED:{"resource":"res://assets/PNG/Power-ups/powerupRed.png"},
 }
 
 #子弹速度升级道具
 const power_up_speed_group = {
-	RewardLevel.BLUE:{"resource":preload("res://assets/PNG/Power-ups/powerupBlue_bolt.png"),"speed_up":1.0},
-	RewardLevel.GREEN:{"resource":preload("res://assets/PNG/Power-ups/powerupGreen_bolt.png"),"speed_up":2.0},
-	RewardLevel.YELLOW:{"resource":preload("res://assets/PNG/Power-ups/powerupYellow_bolt.png"),"speed_up":5.0},
-	RewardLevel.RED:{"resource":preload("res://assets/PNG/Power-ups/powerupRed_bolt.png"),"speed_up":10.0},
+	RewardLevel.BLUE:{"resource":"res://assets/PNG/Power-ups/powerupBlue_bolt.png","speed_up":1.0},
+	RewardLevel.GREEN:{"resource":"res://assets/PNG/Power-ups/powerupGreen_bolt.png","speed_up":2.0},
+	RewardLevel.YELLOW:{"resource":"res://assets/PNG/Power-ups/powerupYellow_bolt.png","speed_up":5.0},
+	RewardLevel.RED:{"resource":"res://assets/PNG/Power-ups/powerupRed_bolt.png","speed_up":10.0},
 }
 
 # TODO:// 盾牌
 const power_up_shield_group = {
-	RewardLevel.BLUE:{"resource":preload("res://assets/PNG/Power-ups/powerupBlue_shield.png")},
-	RewardLevel.GREEN:{"resource":preload("res://assets/PNG/Power-ups/powerupGreen_shield.png")},
-	RewardLevel.YELLOW:{"resource":preload("res://assets/PNG/Power-ups/powerupYellow_shield.png")},
-	RewardLevel.RED:{"resource":preload("res://assets/PNG/Power-ups/powerupRed_shield.png")},
+	RewardLevel.BLUE:{"resource":"res://assets/PNG/Power-ups/powerupBlue_shield.png"},
+	RewardLevel.GREEN:{"resource":"res://assets/PNG/Power-ups/powerupGreen_shield.png"},
+	RewardLevel.YELLOW:{"resource":"res://assets/PNG/Power-ups/powerupYellow_shield.png"},
+	RewardLevel.RED:{"resource":"res://assets/PNG/Power-ups/powerupRed_shield.png"},
 }
 
 # 积分道具
 const power_up_star_group = {
-	RewardLevel.BLUE:{"resource":preload("res://assets/PNG/Power-ups/powerupBlue_star.png"),"score":50},
-	RewardLevel.GREEN:{"resource":preload("res://assets/PNG/Power-ups/powerupGreen_star.png"),"score":100},
-	RewardLevel.YELLOW:{"resource":preload("res://assets/PNG/Power-ups/powerupYellow_star.png"),"score":200},
-	RewardLevel.RED:{"resource":preload("res://assets/PNG/Power-ups/powerupRed_star.png"),"score":500},
+	RewardLevel.BLUE:{"resource":"res://assets/PNG/Power-ups/powerupBlue_star.png","score":50},
+	RewardLevel.GREEN:{"resource":"res://assets/PNG/Power-ups/powerupGreen_star.png","score":100},
+	RewardLevel.YELLOW:{"resource":"res://assets/PNG/Power-ups/powerupYellow_star.png","score":200},
+	RewardLevel.RED:{"resource":"res://assets/PNG/Power-ups/powerupRed_star.png","score":500},
 }
 
 enum RewardBracket{
@@ -65,16 +65,16 @@ enum RewardBracket{
 
 # 攻击速度道具
 const attack_interval_group ={
-	RewardBracket.BRONZE:{"resource":preload("res://assets/PNG/Power-ups/bolt_bronze.png"),"reward_attack_interval":0.1},
-	RewardBracket.GOLD:{"resource":preload("res://assets/PNG/Power-ups/bolt_gold.png"),"reward_attack_interval":0.5},
-	RewardBracket.SILVER:{"resource":preload("res://assets/PNG/Power-ups/bolt_silver.png"),"reward_attack_interval":1.0},
+	RewardBracket.BRONZE:{"resource":"res://assets/PNG/Power-ups/bolt_bronze.png","reward_attack_interval":0.1},
+	RewardBracket.GOLD:{"resource":"res://assets/PNG/Power-ups/bolt_gold.png","reward_attack_interval":0.5},
+	RewardBracket.SILVER:{"resource":"res://assets/PNG/Power-ups/bolt_silver.png","reward_attack_interval":1.0},
 }
 
 #子弹弹道道具
 const bullet_line_group = {
-	RewardBracket.BRONZE:{"resource":preload("res://assets/PNG/Power-ups/things_bronze.png"),"number":1},
-	RewardBracket.GOLD:{"resource":preload("res://assets/PNG/Power-ups/things_gold.png"),"number":2},
-	RewardBracket.SILVER:{"resource":preload("res://assets/PNG/Power-ups/things_silver.png"),"number":3},
+	RewardBracket.BRONZE:{"resource":"res://assets/PNG/Power-ups/things_bronze.png","number":1},
+	RewardBracket.GOLD:{"resource":"res://assets/PNG/Power-ups/things_gold.png","number":2},
+	RewardBracket.SILVER:{"resource":"res://assets/PNG/Power-ups/things_silver.png","number":3},
 }
 
 var random_generator = RandomNumberGenerator.new()

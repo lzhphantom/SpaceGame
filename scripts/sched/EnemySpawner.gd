@@ -29,7 +29,6 @@ func spawn_enemy_ship() -> void:
 	var rand_x = randf_range(enemy_width,viewport_width-enemy_width)
 	new_enemy.position.x = rand_x
 	new_enemy.position.y = -50
-#	new_enemy.score = 20
 	new_enemy.reset()
 	GameState.increase_enemy(1)
 

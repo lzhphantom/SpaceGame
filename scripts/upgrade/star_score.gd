@@ -20,11 +20,12 @@ func _on_area_entered(other_area):
 		GameState.increase_score(self.score)
 		self.queue_free()
 
-func set_shape(resource: Resource) -> void:
-	$Sprite2D.set_texture(resource)
+func set_shape(resource: String) -> void:
+	$Sprite2D.set_texture(load(resource))
 	rpc("set_shape_same",resource)
+	
 
 @rpc("any_peer")
-func set_shape_same(resource: Resource) -> void:
+func set_shape_same(resource: String) -> void:
 	print("调用中")
-	$Sprite2D.set_texture(resource)
+	$Sprite2D.set_texture(load(resource))

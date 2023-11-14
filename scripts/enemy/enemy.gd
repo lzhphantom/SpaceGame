@@ -12,6 +12,7 @@ var health_component: HealthComponent
 var implements = DamageInterface.Damageable
 func _ready():
 	self.health_component = HealthComponent.new(max_health)
+	self.health_component.callback = Callable(self,"get_damage")
 	self.add_child(self.health_component)
 	$Timer.wait_time = clear_after_deaded
 	$Timer.connect("timeout",Callable(self,"free_self_and_pool"))
@@ -32,7 +33,7 @@ func _on_area_entered(other_area):
 		var laser = other_area as Laser
 		if health_component.is_alive() and not laser.deaded:
 			if DamageInterface.node_implements_interface(self,DamageInterface.Damageable):
-				health_component.get_damage(other_area.attack,Callable(self,"get_damage"))
+				health_component.get_damage(other_area.attack)
 				laser.disable()
 
 func get_damage():

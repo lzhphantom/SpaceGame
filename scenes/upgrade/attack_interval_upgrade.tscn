@@ -35,3 +35,4 @@ polygon = PackedVector2Array(-9, -16, 12, -16, 6, -4, 12, -1, -5, 18, -4, 6, -10
 replication_config = SubResource("SceneReplicationConfig_37s24")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="texture_changed" from="Sprite2D" to="Sprite2D" method="_on_texture_changed"]
