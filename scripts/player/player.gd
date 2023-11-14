@@ -5,7 +5,7 @@ class_name Player
 @export var max_health: float = 10.0
 @export var attack_interval: float = 1.0
 var health_component: HealthComponent
-var bullet_line:int = 1
+@export var bullet_line:int = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var random = RandomNumberGenerator.new()

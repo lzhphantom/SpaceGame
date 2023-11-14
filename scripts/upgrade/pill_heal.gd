@@ -24,3 +24,9 @@ func _on_area_entered(other_area):
 
 func set_shape(resource: Resource) -> void:
 	$Sprite2D.set_texture(resource)
+	rpc("set_shape_same",resource)
+
+@rpc("any_peer")
+func set_shape_same(resource: Resource) -> void:
+	print("调用中")
+	$Sprite2D.set_texture(resource)

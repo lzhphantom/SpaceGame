@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://3cfpee5ox6hq"]
+[gd_scene load_steps=5 format=3 uid="uid://3cfpee5ox6hq"]
 
 [ext_resource type="Texture2D" uid="uid://di6qk8381qnir" path="res://assets/PNG/Power-ups/things_bronze.png" id="1_4ibbp"]
 [ext_resource type="Script" path="res://scripts/upgrade/bullet_increase.gd" id="1_njfoa"]
@@ -6,6 +6,12 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gcsfy"]
 radius = 8.48528
 height = 25.4558
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_7g6ou"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
 
 [node name="BulletIncrease" type="Area2D"]
 script = ExtResource("1_njfoa")
@@ -18,5 +24,8 @@ texture = ExtResource("1_4ibbp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 0.785398
 shape = SubResource("CapsuleShape2D_gcsfy")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_7g6ou")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

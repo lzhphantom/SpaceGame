@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkx7kid0is4gi"]
+[gd_scene load_steps=5 format=3 uid="uid://dkx7kid0is4gi"]
 
 [ext_resource type="Texture2D" uid="uid://dihqa2hdnfeur" path="res://assets/PNG/Power-ups/pill_blue.png" id="1_cury4"]
 [ext_resource type="Script" path="res://scripts/upgrade/pill_heal.gd" id="1_i2qh6"]
@@ -6,6 +6,12 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hi28h"]
 radius = 7.07107
 height = 26.8701
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_34jvs"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
 
 [node name="PillHeal" type="Area2D"]
 script = ExtResource("1_i2qh6")
@@ -17,5 +23,8 @@ texture = ExtResource("1_cury4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 0.785398
 shape = SubResource("CapsuleShape2D_hi28h")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_34jvs")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

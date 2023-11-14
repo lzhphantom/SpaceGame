@@ -1,6 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://cssj38vvs4kse"]
+[gd_scene load_steps=3 format=3 uid="uid://cssj38vvs4kse"]
 
 [ext_resource type="Script" path="res://scripts/upgrade/attack_interval_upgrade.gd" id="1_j6x7g"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_37s24"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:reward_attack_interval")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
+properties/2/path = NodePath(".:speed")
+properties/2/spawn = true
+properties/2/sync = true
+properties/2/watch = false
+properties/3/path = NodePath(".:direction")
+properties/3/spawn = true
+properties/3/sync = true
+properties/3/watch = false
 
 [node name="AttackIntervalUpgrade" type="Area2D"]
 script = ExtResource("1_j6x7g")
@@ -12,5 +30,8 @@ direction = 1
 polygon = PackedVector2Array(-9, -16, 12, -16, 6, -4, 12, -1, -5, 18, -4, 6, -10, 3)
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_37s24")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

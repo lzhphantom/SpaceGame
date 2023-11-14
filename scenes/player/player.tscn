@@ -17,6 +17,10 @@ properties/1/path = NodePath(".:attack_interval")
 properties/1/spawn = true
 properties/1/sync = true
 properties/1/watch = false
+properties/2/path = NodePath(".:bullet_line")
+properties/2/spawn = true
+properties/2/sync = true
+properties/2/watch = false
 
 [node name="Player" type="Area2D" groups=["player"]]
 position = Vector2(287, 892)

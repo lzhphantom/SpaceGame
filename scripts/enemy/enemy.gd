@@ -60,7 +60,7 @@ func get_reward():
 	if result == LaserConstants.Item.Up:
 		print_debug("获得奖励")
 		var r = RewardConstants.random_reward_player()
-		call_deferred("add_sibling",r)
+		call_deferred("add_sibling",r,true)
 		r.position = self.position
 
 
